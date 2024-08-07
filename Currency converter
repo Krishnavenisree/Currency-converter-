@@ -1,0 +1,48 @@
+
+
+import java.util.Scanner;
+
+public class CurrencyConverter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Exchange rates (example values)
+        double usdToEur = 0.93;
+        double usdToGbp = 0.77;
+        double eurToGbp = 0.83;
+
+        System.out.println("Welcome to Currency Converter!");
+
+        // Input: Amount in USD
+        System.out.print("Enter amount in USD: ");
+        double amountInUsd = scanner.nextDouble();
+
+        // Conversion options
+        System.out.println("Select the target currency:");
+        System.out.println("1. EUR (Euro)");
+        System.out.println("2. GBP (British Pound)");
+        int choice = scanner.nextInt();
+
+        double convertedAmount = 0.0;
+        String targetCurrency = "";
+
+        switch (choice) {
+            case 1:
+                convertedAmount = amountInUsd * usdToEur;
+                targetCurrency = "EUR";
+                break;
+            case 2:
+                convertedAmount = amountInUsd * usdToGbp;
+                targetCurrency = "GBP";
+                break;
+            default:
+                System.out.println("Invalid choice.");
+                return;
+        }
+
+        System.out.printf("Converted amount: %.2f %s%n", convertedAmount, targetCurrency);
+
+        scanner.close();
+    }
+}
+ 
